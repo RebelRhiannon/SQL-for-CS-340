@@ -56,12 +56,13 @@ CREATE TABLE `Orders` (
     FOREIGN KEY (`customer_id`)
     REFERENCES `Customers` (`customer_id`)
     ON DELETE CASCADE
-    ON UPDATE NO ACTION,
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Orders_Sales_Reps1`
     FOREIGN KEY (`sales_rep_id`)
     REFERENCES `Sales_Reps` (`sales_rep_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+    );
 
 -- -----------------------------------------------------
 -- Create table `Products`
@@ -97,8 +98,9 @@ CREATE TABLE `Order_Details` (
   CONSTRAINT `fk_Orders_has_products_products1`
     FOREIGN KEY (`product_id`)
     REFERENCES `Products` (`product_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+    );
 
 -- -----------------------------------------------------
 -- Create table `Inventory`
@@ -117,7 +119,8 @@ CREATE TABLE `Inventory` (
     FOREIGN KEY (`product_id`)
     REFERENCES `Products` (`product_id`)
     ON DELETE CASCADE
-    ON UPDATE NO ACTION);
+    ON UPDATE CASCADE
+    );
 
 -- -----------------------------------------------------
 -- Insert sample Customer data
